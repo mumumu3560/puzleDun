@@ -1,0 +1,83 @@
+[gd_scene load_steps=10 format=3 uid="uid://72rmnqunwv1c"]
+
+[ext_resource type="TileSet" uid="uid://chbgj2r1iedu5" path="res://assets/tile/new_tileset.tres" id="1"]
+[ext_resource type="Texture2D" uid="uid://48duccf1bgcm" path="res://assets/images/Cat Sprite Sheet.png" id="5_pk12e"]
+[ext_resource type="Script" path="res://src/level/Area2D2.gd" id="5_yc5s8"]
+[ext_resource type="Texture2D" uid="uid://xg2citrcjuw1" path="res://assets/images/laser_3.png" id="6_bx10h"]
+[ext_resource type="Script" path="res://src/level/CatSpriteSheet.gd" id="6_qfj0r"]
+[ext_resource type="Texture2D" uid="uid://bvgsvi8qnnx5c" path="res://assets/images/laser_4.png" id="7_ypn8n"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qkupw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_bx10h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ypn8n")
+}],
+"loop": true,
+"name": &"laser",
+"speed": 10.0
+}]
+
+[sub_resource type="Animation" id="Animation_kiwja"]
+resource_name = "walk"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [32, 33, 34, 35, 36, 37, 38, 39, 31]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x805w"]
+_data = {
+"walk": SubResource("Animation_kiwja")
+}
+
+[node name="Level01" type="Node2D"]
+
+[node name="Back" type="TileMap" parent="."]
+tile_set = ExtResource("1")
+format = 2
+layer_0/tile_data = PackedInt32Array(0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65543, 0, 0, 65544, 0, 0, 65545, 0, 0, 65546, 0, 0, 65547, 0, 0, 131072, 0, 0, 131073, 0, 0, 131074, 0, 0, 131075, 0, 0, 131076, 0, 0, 131077, 0, 0, 131078, 0, 0, 131079, 0, 0, 131080, 0, 0, 131081, 0, 0, 131082, 0, 0, 131083, 0, 0, 196608, 0, 0, 196609, 0, 0, 196616, 0, 0, 196617, 0, 0, 196618, 0, 0, 196619, 0, 0, 262144, 0, 0, 262145, 0, 0, 262147, 0, 0, 262148, 0, 0, 262152, 0, 0, 262153, 0, 0, 262154, 0, 0, 262155, 0, 0, 327680, 0, 0, 327684, 0, 0, 327689, 0, 0, 327690, 0, 0, 327691, 0, 0, 393216, 0, 0, 393225, 0, 0, 393226, 0, 0, 393227, 0, 0, 458752, 0, 0, 458753, 0, 0, 458754, 0, 0, 458755, 0, 0, 458756, 0, 0, 458757, 0, 0, 458758, 0, 0, 458759, 0, 0, 458760, 0, 0, 458761, 0, 0, 458762, 0, 0, 458763, 0, 0, 327685, 0, 0, 393224, 0, 0, 393223, 0, 0, 393222, 0, 0, 393221, 0, 0, 393220, 0, 0, 393218, 0, 0, 327681, 0, 0, 196610, 0, 0, 196611, 0, 0, 196612, 0, 0, 262149, 0, 0, 327688, 0, 0, 327682, 0, 0, 327683, 0, 0, 393219, 0, 0, 262146, 0, 0, 196613, 0, 0, 196614, 0, 0, 262150, 0, 0, 327686, 0, 0, 327687, 0, 0, 262151, 0, 0, 196615, 0, 0, 393217, 0, 0)
+
+[node name="Front" type="TileMap" parent="."]
+tile_set = ExtResource("1")
+format = 2
+layer_0/tile_data = PackedInt32Array(262147, 10, 0, 196614, 2, 0, 262150, 2, 0, 262151, 6, 0, 327686, 6, 0, 3, 1, 65536, 4, 1, 65536, 5, 1, 65536, 6, 1, 65536, 7, 1, 65536, 8, 1, 65536, 2, 1, 65536, 1, 1, 65536, 0, 1, 65536, 65536, 1, 65536, 131072, 1, 65536, 196608, 1, 65536, 262144, 1, 65536, 327680, 1, 65536, 393216, 1, 65536, 458752, 1, 65536, 458753, 1, 65536, 458755, 1, 65536, 458756, 1, 65536, 458757, 1, 65536, 458758, 1, 65536, 458759, 1, 65536, 458760, 1, 65536, 458761, 1, 65536, 458762, 1, 65536, 458763, 1, 65536, 393227, 1, 65536, 327691, 1, 65536, 262155, 1, 65536, 196619, 1, 65536, 131083, 1, 65536, 65547, 1, 65536, 11, 1, 65536, 10, 1, 65536, 9, 1, 65536, 458754, 1, 65536)
+
+[node name="laser" type="Area2D" parent="."]
+position = Vector2(96, 95)
+script = ExtResource("5_yc5s8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="laser"]
+position = Vector2(287.5, 0)
+scale = Vector2(9.98438, 1)
+sprite_frames = SubResource("SpriteFrames_qkupw")
+animation = &"laser"
+frame_progress = 0.879599
+
+[node name="Area2D" type="Area2D" parent="laser/AnimatedSprite2D"]
+
+[node name="CatSpriteSheet" type="Sprite2D" parent="."]
+position = Vector2(117.25, 151.25)
+scale = Vector2(3.35937, 2.95313)
+texture = ExtResource("5_pk12e")
+hframes = 8
+vframes = 10
+frame = 38
+script = ExtResource("6_qfj0r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CatSpriteSheet"]
+libraries = {
+"": SubResource("AnimationLibrary_x805w")
+}
